@@ -20,7 +20,7 @@ def _add_namespace(namespace, data):
     for key in keys:
         data["%s:%s" % (namespace, key)] = data.pop(key)
 
-def _assets_from_apps(js=False, css=False):
+def _assets_from_apps():
     """
     Search the INSTALLED_APPS for assets.py files,
     and fill the js/css with its contents. Namespace
@@ -37,10 +37,6 @@ def _assets_from_apps(js=False, css=False):
             _css.update(getattr(assets, "PIPELINE_CSS", {}))
         except ImportError:
             continue
-    if js:
-        return _js
-    if css:
-        return _css
 
 if not cached:
     _assets_from_apps()
