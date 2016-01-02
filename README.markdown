@@ -11,8 +11,10 @@ In `settings.py`
 
 ```
 import pipeline_helpers
-PIPELINE_CSS = pipeline_helpers.find_css()
-PIPELINE_JS = pipeline_helpers.find_js()
+PIPELINE = {
+    "STYLESHEETS": pipeline_helpers.find_css(),
+    "JAVASCRIPT": pipeline_helpers.find_js(),
+}
 ```
 
 And then put asset configs in `assets.py` modules within the apps.
